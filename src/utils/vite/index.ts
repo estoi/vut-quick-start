@@ -1,31 +1,31 @@
-import { PluginOption } from "vite";
-import vue from "@vitejs/plugin-vue";
+import { PluginOption } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
-import { ConfigPagesPlugin } from "./pages";
-import { ConfigProgressPlugin } from "./progress";
-import { ConfigCompressPlugin } from "./compress";
-import { ConfigRestartPlugin } from "./restart";
-import { AutoRegistryComponents } from "./component";
-import { AutoImportDeps } from "./autoImport";
+import { ConfigPagesPlugin } from './pages'
+import { ConfigProgressPlugin } from './progress'
+import { ConfigCompressPlugin } from './compress'
+import { ConfigRestartPlugin } from './restart'
+import { AutoRegistryComponents } from './component'
+import { AutoImportDeps } from './autoImport'
 
 export function createVitePlugins(_isBuild?) {
     const vitePlugins: (PluginOption | PluginOption[])[] = [
         // vue支持
-        vue(),
+        vue()
     ]
 
     // 自动生成路由
-    vitePlugins.push(ConfigPagesPlugin());
+    vitePlugins.push(ConfigPagesPlugin())
     // 构建项目时显示进度条
-    vitePlugins.push(ConfigProgressPlugin());
+    vitePlugins.push(ConfigProgressPlugin())
     // 压缩代码
-    vitePlugins.push(ConfigCompressPlugin());
+    vitePlugins.push(ConfigCompressPlugin())
     // 自动重启
-    vitePlugins.push(ConfigRestartPlugin());
+    vitePlugins.push(ConfigRestartPlugin())
     // 自动引入组件
-    vitePlugins.push(AutoRegistryComponents());
+    vitePlugins.push(AutoRegistryComponents())
     // 自动引入依赖
-    vitePlugins.push(AutoImportDeps());
+    vitePlugins.push(AutoImportDeps())
 
-    return vitePlugins;
+    return vitePlugins
 }

@@ -1,6 +1,6 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import routes from "virtual:generated-pages";
-import NProgress from "nprogress";
+import { createRouter, createWebHashHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import NProgress from 'nprogress'
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -8,12 +8,12 @@ const router = createRouter({
 })
 
 router.beforeEach(async (_to, _from, next) => {
-    NProgress.start();
-    next();
+    NProgress.start()
+    next()
 })
 
 router.afterEach((_to) => {
-    NProgress.done();
+    NProgress.done()
 })
 
-export default router;
+export default router
